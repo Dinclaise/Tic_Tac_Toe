@@ -1,0 +1,19 @@
+@import "normalize.css";
+@import "./components/Game/Game.module.css";
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.GameWrapper {
+  max-width: 600px;
+  height: 600px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid black;
+}
