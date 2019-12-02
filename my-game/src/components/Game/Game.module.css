@@ -1,0 +1,48 @@
+html {
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    
+    box-sizing: border-box;
+}
+
+.square {
+    display: flex;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    border: .1rem solid black;
+    font-size: 4rem;
+    justify-content: center;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.statusPlayer {
+    font-weight: 700;
+    font-size: 1.8rem
+}
+
+
+.blockSquares {
+    width: 30rem;
+    height: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 8rem; 
+    
+}
+
+.boardRow {
+    display: flex;
+}
+
+.gameBoard {
+    margin-bottom: 5rem;
+}
