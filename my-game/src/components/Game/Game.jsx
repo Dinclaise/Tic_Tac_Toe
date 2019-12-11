@@ -5,7 +5,7 @@ class Board extends React.Component {
     renderSquare(i) {
       return (
         <Square value={this.props.squares[i]} 
-          onClick={() => {this.props.onClick(i)} } />
+          onClick={() => {this.props.onClick(i)}} />
       )
     }
   
@@ -56,13 +56,15 @@ function calculateWinner(squares) {
         }
     }
     return null;
+
+    
 }
 
 
 // managed component from Board
 function Square(props) {
     return (
-        <button className={cls.square}  onClick={() => props.onClick()} >
+        <button className={cls.square}  onClick={() => props.onClick()}>
             {props.value}
         </button>
     )
@@ -88,6 +90,7 @@ class Game extends React.Component {
     if (calculateWinner(squares) || squares[i]) {
         return;
     }
+    
     squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
       history: history.concat([{
@@ -101,14 +104,14 @@ class Game extends React.Component {
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: true
+      xIsNext: (step % 2) === 0
     })
   }
 
     render() {
       const history = this.state.history;
       const current = history[this.state.stepNumber];
-      const winner = calculateWinner(current.squares)
+      const winner = calculateWinner(current.squares);
       console.log(current.squares);
 
 
@@ -121,12 +124,13 @@ class Game extends React.Component {
         )
       });
 
+
       let status;
       if (winner) {
-        status = 'Выиграл ' + winner;
+        status = 'Выиграл: ' + winner;
       } else {
-        status = 'Следующий ход: ' + (this.state.xIsNext ? 'X' : 'O');
-      }
+        status = (this.state.stepNumber === 9 ? 'Ничья!' :  'Следующий ход: ' + (this.state.xIsNext ? 'X' : 'O'));
+      } 
 
       return (
         <div className={cls.game}>
@@ -135,8 +139,8 @@ class Game extends React.Component {
                   onClick={(i) => this.handleClick(i)} />
           </div>
           <div className={cls.gameInfo}>
-            <div>{status}</div>
-            <ol>{moves}</ol>
+            <div className={cls.playerStatus}>{status}</div>
+            <ol className={cls.gameMove}>{moves}</ol>
           </div>
         </div>
       );

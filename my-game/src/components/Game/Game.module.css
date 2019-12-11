@@ -9,6 +9,8 @@ html {
     box-sizing: border-box;
 }
 
+
+
 .square {
     display: flex;
     align-items: center;
@@ -17,6 +19,11 @@ html {
     border: .1rem solid black;
     font-size: 4rem;
     justify-content: center;
+}
+
+.winnerPlayer {
+    color: saddlebrown;
+    font-size: 5rem;
 }
 
 .square:focus {
@@ -46,3 +53,17 @@ html {
 .gameBoard {
     margin-bottom: 5rem;
 }
+
+.gameInfo {
+
+}
+
+.playerStatus {
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.gameMove {
+    text-align: left;
+}
+
